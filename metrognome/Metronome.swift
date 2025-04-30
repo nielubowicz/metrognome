@@ -37,19 +37,16 @@ class Metronome: ObservableObject {
     private var tickTimer: Timer?
     
     func play() {
-        beatCount = 1
         isPlaying = true
         let timer = Timer(
             timeInterval: 60.0 / Double(beat.bpm),
             repeats: true
         ) { _ in
             guard let tickSoundID = Internal.cache[self.tickURL],
-                let tockSoundID = Internal.cache[self.tockURL] else { return }
-            if self.beatCount == 1 {
-                AudioServicesPlaySystemSoundWithCompletion(tockSoundID) {}
-            } else {
-                AudioServicesPlaySystemSoundWithCompletion(tickSoundID) {}
-            }
+                  let tockSoundID = Internal.cache[self.tockURL] else { return }
+            
+            let sound = self.beatCount == 1 ? tockSoundID : tickSoundID
+            AudioServicesPlaySystemSoundWithCompletion(sound, nil)
             self.beatCount = (self.beatCount % self.beat.tempo.numerator) + 1
         }
         self.tickTimer = timer
