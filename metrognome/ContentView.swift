@@ -8,14 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var beat: Beat
+    @StateObject private var metronome: Metronome
+
+    init(beat: Beat = Beat(bpm: 100, tempo: Tempo(numerator: 3, denominator: 4))) {
+        _beat = State(initialValue: beat)
+        _metronome = StateObject(wrappedValue: Metronome(beat: beat))
+    }
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Spacer()
+            BPMView(bpm: $beat.bpm)
+            Spacer()
+            TempoView(tempo: $beat.tempo)
+            Spacer()
+            MetronomeView(metronome: metronome)
+            Spacer()
         }
         .padding()
+        .onChange(of: beat) { _, newValue in
+            let wasPlaying = metronome.isPlaying
+            metronome.pause()
+            metronome.beat = newValue
+            if wasPlaying {
+                metronome.play()
+            }
+        }
     }
 }
 
