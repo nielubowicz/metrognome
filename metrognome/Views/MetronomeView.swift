@@ -9,6 +9,8 @@ struct MetronomeView: View {
                 ForEach(1..<1 + metronome.beat.tempo.numerator, id: \.self) { index in
                     RoundedRectangle(cornerRadius: 8)
                         .foregroundStyle(index == metronome.beatCount ? .blue : .gray)
+                        .scaleEffect(index == metronome.beatCount ? 1.1 : 1)
+                        .animation(.bouncy, value: metronome.beatCount)
                 }
             }
             .frame(maxHeight: 120)
@@ -19,6 +21,8 @@ struct MetronomeView: View {
                     metronome.play()
                 }
             }
+            .padding(24)
+            .buttonBorderShape(ButtonBorderShape.roundedRectangle)
         }
     }
 }

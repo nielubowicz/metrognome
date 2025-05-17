@@ -3,7 +3,7 @@ import AVKit
 class Metronome: ObservableObject {
     var beat: Beat
     @Published private(set) var isPlaying: Bool = false
-    @Published private(set) var beatCount = 1
+    @Published private(set) var beatCount = 0
     
     private struct Internal {
         static var cache = [URL:SystemSoundID]()
@@ -44,10 +44,9 @@ class Metronome: ObservableObject {
         ) { _ in
             guard let tickSoundID = Internal.cache[self.tickURL],
                   let tockSoundID = Internal.cache[self.tockURL] else { return }
-            
+            self.beatCount = (self.beatCount % self.beat.tempo.numerator) + 1
             let sound = self.beatCount == 1 ? tockSoundID : tickSoundID
             AudioServicesPlaySystemSoundWithCompletion(sound, nil)
-            self.beatCount = (self.beatCount % self.beat.tempo.numerator) + 1
         }
         self.tickTimer = timer
         RunLoop.current.add(timer, forMode: .common)
@@ -57,7 +56,7 @@ class Metronome: ObservableObject {
         tickTimer?.invalidate()
         tickTimer = nil
         isPlaying = false
-        beatCount = 1
+        beatCount = 0
     }
     
     private var tickURL: URL {

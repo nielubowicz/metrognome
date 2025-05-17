@@ -24,7 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04B46FCF2DC2AF3E003B3538 /* metrognome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = metrognome.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04B46FCF2DC2AF3E003B3538 /* metrognomo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = metrognomo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B46FDC2DC2AF40003B3538 /* metrognomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = metrognomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B46FE62DC2AF40003B3538 /* metrognomeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = metrognomeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -85,7 +85,7 @@
 		04B46FD02DC2AF3E003B3538 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				04B46FCF2DC2AF3E003B3538 /* metrognome.app */,
+				04B46FCF2DC2AF3E003B3538 /* metrognomo.app */,
 				04B46FDC2DC2AF40003B3538 /* metrognomeTests.xctest */,
 				04B46FE62DC2AF40003B3538 /* metrognomeUITests.xctest */,
 			);
@@ -95,9 +95,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		04B46FCE2DC2AF3E003B3538 /* metrognome */ = {
+		04B46FCE2DC2AF3E003B3538 /* metrognomo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 04B46FF02DC2AF40003B3538 /* Build configuration list for PBXNativeTarget "metrognome" */;
+			buildConfigurationList = 04B46FF02DC2AF40003B3538 /* Build configuration list for PBXNativeTarget "metrognomo" */;
 			buildPhases = (
 				04B46FCB2DC2AF3E003B3538 /* Sources */,
 				04B46FCC2DC2AF3E003B3538 /* Frameworks */,
@@ -110,11 +110,11 @@
 			fileSystemSynchronizedGroups = (
 				04B46FD12DC2AF3E003B3538 /* metrognome */,
 			);
-			name = metrognome;
+			name = metrognomo;
 			packageProductDependencies = (
 			);
 			productName = metrognome;
-			productReference = 04B46FCF2DC2AF3E003B3538 /* metrognome.app */;
+			productReference = 04B46FCF2DC2AF3E003B3538 /* metrognomo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		04B46FDB2DC2AF40003B3538 /* metrognomeTests */ = {
@@ -200,7 +200,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				04B46FCE2DC2AF3E003B3538 /* metrognome */,
+				04B46FCE2DC2AF3E003B3538 /* metrognomo */,
 				04B46FDB2DC2AF40003B3538 /* metrognomeTests */,
 				04B46FE52DC2AF40003B3538 /* metrognomeUITests */,
 			);
@@ -258,12 +258,12 @@
 /* Begin PBXTargetDependency section */
 		04B46FDE2DC2AF40003B3538 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 04B46FCE2DC2AF3E003B3538 /* metrognome */;
+			target = 04B46FCE2DC2AF3E003B3538 /* metrognomo */;
 			targetProxy = 04B46FDD2DC2AF40003B3538 /* PBXContainerItemProxy */;
 		};
 		04B46FE82DC2AF40003B3538 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 04B46FCE2DC2AF3E003B3538 /* metrognome */;
+			target = 04B46FCE2DC2AF3E003B3538 /* metrognomo */;
 			targetProxy = 04B46FE72DC2AF40003B3538 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -400,11 +400,13 @@
 				DEVELOPMENT_TEAM = 9RH4L8S898;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -428,11 +430,13 @@
 				DEVELOPMENT_TEAM = 9RH4L8S898;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -530,7 +534,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		04B46FF02DC2AF40003B3538 /* Build configuration list for PBXNativeTarget "metrognome" */ = {
+		04B46FF02DC2AF40003B3538 /* Build configuration list for PBXNativeTarget "metrognomo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				04B46FF12DC2AF40003B3538 /* Debug */,
