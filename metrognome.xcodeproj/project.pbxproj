@@ -24,6 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0452352B2DDAA3FE0002B2B3 /* metrognomo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "metrognomo-Info.plist"; sourceTree = "<group>"; };
 		04B46FCF2DC2AF3E003B3538 /* metrognomo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = metrognomo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B46FDC2DC2AF40003B3538 /* metrognomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = metrognomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B46FE62DC2AF40003B3538 /* metrognomeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = metrognomeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +76,7 @@
 		04B46FC62DC2AF3E003B3538 = {
 			isa = PBXGroup;
 			children = (
+				0452352B2DDAA3FE0002B2B3 /* metrognomo-Info.plist */,
 				04B46FD12DC2AF3E003B3538 /* metrognome */,
 				04B46FDF2DC2AF40003B3538 /* metrognomeTests */,
 				04B46FE92DC2AF40003B3538 /* metrognomeUITests */,
@@ -396,10 +398,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 9RH4L8S898;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "metrognomo-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -426,10 +429,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 9RH4L8S898;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "metrognomo-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
