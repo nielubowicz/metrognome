@@ -31,6 +31,7 @@ class Metronome: ObservableObject {
     
     @objc
     private func routeChange(_ notification: Notification) {
+        guard isPlaying == false else { return }
         pause()
         play()
     }
