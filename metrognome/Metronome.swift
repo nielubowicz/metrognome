@@ -4,37 +4,36 @@ class Metronome: ObservableObject {
     var beat: Beat
     @Published private(set) var isPlaying: Bool = false
     @Published private(set) var beatCount = 0
-    
-    private struct Internal {
-        static var cache = [URL:SystemSoundID]()
-    }
+        
+    private var audioPlayer: AVPlayer
     
     init(beat: Beat) {
         self.beat = beat
+        audioPlayer = AVPlayer()
         
-        // Set up system sounds
-        var soundID : SystemSoundID = Internal.cache[tickURL] ?? 0
-        if soundID == 0 {
-            let status = AudioServicesCreateSystemSoundID(tickURL as CFURL, &soundID)
-            if status == kAudioServicesNoError {
-                Internal.cache[tickURL] = soundID
-            } else {
-                print("Error loading sound: \(status)")
-            }
+        do {
+            // Set up AVAudioSession
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers])
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            print(error)
         }
         
-        soundID = Internal.cache[tockURL] ?? 0
-        if soundID == 0 {
-            let status = AudioServicesCreateSystemSoundID(tockURL as CFURL, &soundID)
-            if status == kAudioServicesNoError {
-                Internal.cache[tockURL] = soundID
-            } else {
-                print("Error loading sound: \(status)")
-            }
-        }
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(routeChange(_:)),
+            name: AVAudioSession.routeChangeNotification,
+            object: nil
+        )
     }
         
     private var tickTimer: Timer?
+    
+    @objc
+    private func routeChange(_ notification: Notification) {
+        pause()
+        play()
+    }
     
     func play() {
         isPlaying = true
@@ -42,11 +41,10 @@ class Metronome: ObservableObject {
             timeInterval: 60.0 / Double(beat.bpm),
             repeats: true
         ) { _ in
-            guard let tickSoundID = Internal.cache[self.tickURL],
-                  let tockSoundID = Internal.cache[self.tockURL] else { return }
             self.beatCount = (self.beatCount % self.beat.tempo.numerator) + 1
-            let sound = self.beatCount == 1 ? tockSoundID : tickSoundID
-            AudioServicesPlaySystemSoundWithCompletion(sound, nil)
+            let sound = self.beatCount == 1 ? self.tockPlayerItem : self.tickPlayerItem
+            self.audioPlayer.replaceCurrentItem(with: sound)
+            self.audioPlayer.play()
         }
         self.tickTimer = timer
         RunLoop.current.add(timer, forMode: .common)
@@ -59,8 +57,16 @@ class Metronome: ObservableObject {
         beatCount = 0
     }
     
+    private var tickPlayerItem: AVPlayerItem {
+        AVPlayerItem(url: tickURL)
+    }
+    
     private var tickURL: URL {
         Bundle.main.url(forResource: "tick", withExtension: "aiff")!
+    }
+    
+    private var tockPlayerItem: AVPlayerItem {
+        AVPlayerItem(url: tockURL)
     }
     
     private var tockURL: URL {
