@@ -12,6 +12,7 @@ struct BPMView: View {
             label: {
                 Label("", systemImage: "minus.circle")
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .font(.title)
             }
             .contentShape(Rectangle())
             .padding(.horizontal)
@@ -37,11 +38,14 @@ struct BPMView: View {
             
             Spacer(minLength: 4)
             Text(bpm.formatted())
+                .font(.title)
+                .fontWeight(.medium)
             Spacer(minLength: 4)
             
             Button {} label: {
                 Label("", systemImage: "plus.circle")
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .font(.title)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .contentShape(Rectangle())
@@ -88,4 +92,8 @@ struct BPMView: View {
         timer?.invalidate()
         timer = nil
     }
+}
+
+#Preview {
+    BPMView(bpm: Binding.constant(100))
 }

@@ -20,7 +20,7 @@ struct ContentView: View {
         VStack {
             Spacer()
             BPMView(bpm: $beat.bpm)
-            Spacer()
+                .padding(.bottom, 48)
             TempoView(tempo: $beat.tempo)
             Spacer()
             MetronomeView(metronome: metronome)

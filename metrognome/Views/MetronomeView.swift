@@ -22,9 +22,13 @@ struct MetronomeView: View {
                 }
             } label: {
                 Label("", systemImage: metronome.isPlaying ? "stop.circle" : "play.circle")
-                    .frame(minWidth: 96, minHeight: 96)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .font(.title)
             }
-            .contentShape(Rectangle())
+            .buttonStyle(.borderedProminent)
+            .controlSize(.large)
+            .contentShape(RoundedRectangle(cornerRadius: 8))
+            .padding(48)
         }
     }
 }
