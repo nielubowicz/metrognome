@@ -6,35 +6,28 @@ struct BPMView: View {
     
     var body: some View {
         HStack {
-            Button("", systemImage: "minus.circle") {
+            Button {
                 bpm = bpm - 1
+            } label: {
+                Label("", systemImage: "minus.circle")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-            .padding(24)
-            .gesture(
-                LongPressGesture(minimumDuration: 0.1)
-                    .onChanged { _ in
-                        startDecreasingTempo()
-                    }
-                    .onEnded { _ in
-                        stopChangingTempo()
-                    }
-            )
+            .contentShape(Rectangle())
+            .padding(.horizontal)
+            
             Spacer(minLength: 4)
             Text(bpm.formatted())
             Spacer(minLength: 4)
-            Button("", systemImage: "plus.circle") {
+            
+            Button {
                 bpm = bpm + 1
+            } label: {
+                Label("", systemImage: "plus.circle")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-            .padding(24)
-            .gesture(
-                LongPressGesture(minimumDuration: 0.1)
-                    .onChanged { _ in
-                        startIncreasingTempo()
-                    }
-                    .onEnded { _ in
-                        stopChangingTempo()
-                    }
-            )
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .contentShape(Rectangle())
+            .padding(.horizontal)
         }
     }
     

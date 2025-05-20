@@ -10,10 +10,11 @@ struct TempoView: View {
             }
             Text("/")
             Picker("", selection: $tempo.denominator) {
-                ForEach(1..<13) { Text($0.formatted()).tag($0) }
+                ForEach([1, 2, 4, 8, 16, 32, 64], id: \.self) { value in
+                    Text(value.formatted()).tag(value)
+                }
             }
         }
         .frame(minWidth: 120)
-        .background(.white)
     }
 }

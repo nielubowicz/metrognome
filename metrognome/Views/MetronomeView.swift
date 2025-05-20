@@ -14,15 +14,17 @@ struct MetronomeView: View {
                 }
             }
             .frame(maxHeight: 120)
-            Button("", systemImage: metronome.isPlaying ? "stop.circle" : "play.circle") {
+            Button {
                 if metronome.isPlaying {
                     metronome.pause()
                 } else {
                     metronome.play()
                 }
+            } label: {
+                Label("", systemImage: metronome.isPlaying ? "stop.circle" : "play.circle")
+                    .frame(minWidth: 96, minHeight: 96)
             }
-            .padding(24)
-            .buttonBorderShape(ButtonBorderShape.roundedRectangle)
+            .contentShape(Rectangle())
         }
     }
 }
