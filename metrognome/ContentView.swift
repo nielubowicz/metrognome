@@ -19,7 +19,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Spacer()
-            BPMView(bpm: $beat.bpm)
+            BPMView(bpm: $beat.bpm.nonNegative)
                 .padding(.bottom, 48)
             TempoView(tempo: $beat.tempo)
             Spacer()
@@ -35,6 +35,15 @@ struct ContentView: View {
                 metronome.play()
             }
         }
+    }
+}
+
+extension Binding where Value == Int {
+    var nonNegative: Binding<Int> {
+        Binding(
+            get: { self.wrappedValue },
+            set: { self.wrappedValue = $0 > 0 ? $0 : 0 }
+        )
     }
 }
 
