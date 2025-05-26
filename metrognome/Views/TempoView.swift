@@ -16,8 +16,11 @@ struct TempoView: View {
                     .font(.title)
             }
             .id(tempo.numerator)
+            .menuOrder(.fixed)
+            
             Text("/")
                 .font(.title)
+            
             Menu {
                 Picker(selection: $tempo.denominator) {
                     ForEach([1, 2, 4, 8, 16, 32, 64], id: \.self) { value in
@@ -29,6 +32,7 @@ struct TempoView: View {
                     .font(.title)
             }
             .id(tempo.denominator)
+            .menuOrder(.fixed)
         }
         .frame(minWidth: 120)
     }
