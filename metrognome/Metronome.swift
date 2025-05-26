@@ -3,7 +3,7 @@ import AVKit
 class Metronome: ObservableObject {
     var beat: Beat
     @Published private(set) var isPlaying: Bool = false
-    @Published private(set) var beatCount = 0
+    @Published var beatCount = 0
         
     private var audioPlayer: AVPlayer
     

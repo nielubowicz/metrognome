@@ -11,6 +11,15 @@ struct MetronomeView: View {
                         .foregroundStyle(index == metronome.beatCount ? .blue : .gray)
                         .scaleEffect(index == metronome.beatCount ? 1.1 : 1)
                         .animation(.bouncy, value: metronome.beatCount)
+                        .onTapGesture {
+                            if metronome.isPlaying {
+                                metronome.pause()
+                                metronome.beatCount = index
+                                metronome.play()
+                            } else {
+                                metronome.beatCount = index
+                            }
+                        }
                 }
             }
             .frame(maxHeight: 120)

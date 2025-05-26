@@ -26,9 +26,6 @@ struct BPMView: View {
                         .frame(maxWidth: .infinity)
                         .lineLimit(1)
                         .padding(.vertical, 16)
-                        .onTapGesture {
-                            showTempoPicker = true
-                        }
                         .font(.title)
                         .fontWeight(.medium)
                 }
@@ -39,6 +36,9 @@ struct BPMView: View {
                     RoundedRectangle(cornerRadius: 16)
                         .stroke(UIColor.separator.color, lineWidth: 2)
                 )
+                .onTapGesture {
+                    showTempoPicker = true
+                }
                 
                 Spacer(minLength: 4)
                 
