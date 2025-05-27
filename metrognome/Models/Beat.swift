@@ -1,6 +1,6 @@
 import Foundation
 
-struct Beat: Equatable {
+struct Beat: Equatable, Codable {
     var bpm: Int
     var tempo: Tempo
 }
