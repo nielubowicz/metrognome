@@ -1,7 +1,21 @@
 import AVKit
 
 class Metronome: ObservableObject {
-    var beat: Beat
+    var beat: Beat {
+        willSet {
+            wasPlaying = isPlaying
+            pause()
+        }
+        didSet {
+            if wasPlaying {
+                play()
+            }
+            wasPlaying = false
+        }
+    }
+    
+    private var wasPlaying = false
+    
     @Published private(set) var isPlaying: Bool = false
     @Published var beatCount = 0
         
