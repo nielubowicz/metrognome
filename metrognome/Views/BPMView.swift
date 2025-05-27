@@ -15,10 +15,7 @@ struct BPMView: View {
             Spacer()
             HStack {
                 Button {} label: { Label("", systemImage: "minus.circle") }
-                    .tempoButton(
-                        tapGesture: AnyGesture(TapGesture().onEnded { bpm = bpm - 1 }),
-                        longPressGesture: longPressGestureForState($minusState, handler: decrementIfNecessaryByAmount)
-                    )
+                    .tempoButton(longPressGesture: longPressGestureForState($minusState, handler: decrementIfNecessaryByAmount))
                 
                 Spacer(minLength: 4)
                 VStack {
@@ -43,10 +40,7 @@ struct BPMView: View {
                 Spacer(minLength: 4)
                 
                 Button {} label: { Label("", systemImage: "plus.circle") }
-                    .tempoButton(
-                        tapGesture: AnyGesture(TapGesture().onEnded { bpm = bpm + 1 }),
-                        longPressGesture: longPressGestureForState($plusState, handler: incrementIfNecessaryByAmount)
-                    )
+                    .tempoButton(longPressGesture: longPressGestureForState($plusState, handler: incrementIfNecessaryByAmount))
             }
         }
         .sheet(isPresented: $showTempoPicker, onDismiss: { showTempoPicker = false }) {
@@ -65,12 +59,12 @@ struct BPMView: View {
                 })
                 .onChanged { _ in
                     handler(amount)
-                    
-                    timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
+                    timer?.invalidate()
+                    timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { _ in
                         handler(amount)
                     }
-                    
-                    speedUpTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+                    speedUpTimer?.invalidate()
+                    speedUpTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
                         amount = 10
                     }
                 }
@@ -98,6 +92,7 @@ struct BPMView: View {
     }
     
     private func stopChangingTempo() {
+        guard speedUpTimer != nil, timer != nil else { return }
         speedUpTimer?.invalidate()
         speedUpTimer = nil
         timer?.invalidate()

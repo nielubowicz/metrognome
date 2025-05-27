@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct TempoButton: ViewModifier {
-    var tapGesture: AnyGesture<Void>
     var longPressGesture: AnyGesture<Bool>
     
     func body(content: Content) -> some View {
@@ -9,7 +8,6 @@ struct TempoButton: ViewModifier {
             .buttonStyle(TempoButtonStyle())
             .contentShape(RoundedRectangle(cornerRadius: 16))
             .padding(.horizontal)
-            .highPriorityGesture(tapGesture)
             .simultaneousGesture(longPressGesture)
             .background(Color.accentColor)
             .clipShape(RoundedRectangle(cornerRadius: 16))
@@ -18,11 +16,10 @@ struct TempoButton: ViewModifier {
 
 extension Button {
     func tempoButton(
-        tapGesture: AnyGesture<Void>,
         longPressGesture: AnyGesture<Bool>
     ) -> some View {
         modifier(
-            TempoButton(tapGesture: tapGesture, longPressGesture: longPressGesture)
+            TempoButton(longPressGesture: longPressGesture)
         )
     }
 }
