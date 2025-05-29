@@ -10,10 +10,10 @@ import SwiftUI
         
         var body: some View {
             VStack {
-                Text("Enter Tempo")
+                Text(L10n.enterTempo)
                     .font(.largeTitle)
                     .foregroundStyle(.secondary)
-                TextField("Tempo (bpm)", text: $localTempo)
+                TextField(L10n.tempoBpm, text: $localTempo)
                     .focused($textFieldFocused)
                     .padding(8)
                     .overlay {
@@ -22,7 +22,7 @@ import SwiftUI
                     }
                     .padding()
 
-                Button("Done") {
+                Button(L10n.done) {
                     tempo = Int(localTempo) ?? 0
                     textFieldFocused = false
                     dismiss()

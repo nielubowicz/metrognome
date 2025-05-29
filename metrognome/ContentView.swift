@@ -11,8 +11,7 @@ struct ContentView: View {
     @State private var beat: Beat
     @StateObject private var metronome: Metronome
 
-    @AppStorage("mostRecentBeats")
-    private var mostRecentBeats: [Beat] = []
+    @State private var beatGridViewModel = BeatGridViewModel()
     
     init(beat: Beat = Beat(bpm: 100, tempo: Tempo(numerator: 3, denominator: 4))) {
         _beat = State(initialValue: beat)
@@ -28,9 +27,9 @@ struct ContentView: View {
             Spacer()
             MetronomeView(metronome: metronome)
             Spacer()
-            BeatGrid(beats: mostRecentBeats) {
+            BeatGrid(viewModel: beatGridViewModel) { beat in
                 self.beat = beat
-                metronome.beat = beat
+                beatGridViewModel.addBeat(beat)
             }
         }
         .padding()
@@ -39,11 +38,7 @@ struct ContentView: View {
         }
         .onChange(of: metronome.isPlaying) { _, newValue in
             guard newValue else { return } // don't do anything if metronome isn't playing
-            if mostRecentBeats.contains(beat) {
-                mostRecentBeats.removeAll(where: {$0 == beat})
-            }
-            
-            mostRecentBeats.insert(beat, at: 0)
+            beatGridViewModel.addBeat(beat)
         }
     }
 }
