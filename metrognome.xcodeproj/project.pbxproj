@@ -25,7 +25,7 @@
 
 /* Begin PBXFileReference section */
 		0452352B2DDAA3FE0002B2B3 /* metrognomo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "metrognomo-Info.plist"; sourceTree = "<group>"; };
-		04B46FCF2DC2AF3E003B3538 /* metrognomo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = metrognomo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04B46FCF2DC2AF3E003B3538 /* metroknowm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = metroknowm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B46FDC2DC2AF40003B3538 /* metrognomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = metrognomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B46FE62DC2AF40003B3538 /* metrognomeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = metrognomeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -87,7 +87,7 @@
 		04B46FD02DC2AF3E003B3538 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				04B46FCF2DC2AF3E003B3538 /* metrognomo.app */,
+				04B46FCF2DC2AF3E003B3538 /* metroknowm.app */,
 				04B46FDC2DC2AF40003B3538 /* metrognomeTests.xctest */,
 				04B46FE62DC2AF40003B3538 /* metrognomeUITests.xctest */,
 			);
@@ -97,9 +97,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		04B46FCE2DC2AF3E003B3538 /* metrognomo */ = {
+		04B46FCE2DC2AF3E003B3538 /* metroknowm */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 04B46FF02DC2AF40003B3538 /* Build configuration list for PBXNativeTarget "metrognomo" */;
+			buildConfigurationList = 04B46FF02DC2AF40003B3538 /* Build configuration list for PBXNativeTarget "metroknowm" */;
 			buildPhases = (
 				04B46FCB2DC2AF3E003B3538 /* Sources */,
 				04B46FCC2DC2AF3E003B3538 /* Frameworks */,
@@ -112,11 +112,11 @@
 			fileSystemSynchronizedGroups = (
 				04B46FD12DC2AF3E003B3538 /* metrognome */,
 			);
-			name = metrognomo;
+			name = metroknowm;
 			packageProductDependencies = (
 			);
 			productName = metrognome;
-			productReference = 04B46FCF2DC2AF3E003B3538 /* metrognomo.app */;
+			productReference = 04B46FCF2DC2AF3E003B3538 /* metroknowm.app */;
 			productType = "com.apple.product-type.application";
 		};
 		04B46FDB2DC2AF40003B3538 /* metrognomeTests */ = {
@@ -202,7 +202,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				04B46FCE2DC2AF3E003B3538 /* metrognomo */,
+				04B46FCE2DC2AF3E003B3538 /* metroknowm */,
 				04B46FDB2DC2AF40003B3538 /* metrognomeTests */,
 				04B46FE52DC2AF40003B3538 /* metrognomeUITests */,
 			);
@@ -260,12 +260,12 @@
 /* Begin PBXTargetDependency section */
 		04B46FDE2DC2AF40003B3538 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 04B46FCE2DC2AF3E003B3538 /* metrognomo */;
+			target = 04B46FCE2DC2AF3E003B3538 /* metroknowm */;
 			targetProxy = 04B46FDD2DC2AF40003B3538 /* PBXContainerItemProxy */;
 		};
 		04B46FE82DC2AF40003B3538 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 04B46FCE2DC2AF3E003B3538 /* metrognomo */;
+			target = 04B46FCE2DC2AF3E003B3538 /* metroknowm */;
 			targetProxy = 04B46FE72DC2AF40003B3538 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -540,7 +540,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		04B46FF02DC2AF40003B3538 /* Build configuration list for PBXNativeTarget "metrognomo" */ = {
+		04B46FF02DC2AF40003B3538 /* Build configuration list for PBXNativeTarget "metroknowm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				04B46FF12DC2AF40003B3538 /* Debug */,
